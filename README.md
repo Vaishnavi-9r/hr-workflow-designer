@@ -1,18 +1,97 @@
-# React + Vite
+ HR Workflow Designer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A mini visual workflow builder for HR processes built using **React + React Flow**.
+This application allows users to design, configure, and simulate workflows like onboarding, approvals, and automated actions.
 
-Currently, two official plugins are available:
+ Features
+ Workflow Canvas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* Interactive canvas using React Flow
+* Add multiple node types:
 
-## React Compiler
+  * Start Node
+  * Task Node
+  * Approval Node
+  * Automated Node
+  * End Node
+* Connect nodes visually using edges
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+ Node Configuration Panel
 
-Note: This will impact Vite dev & build performances.
+* Dynamic form for each node type
+* Real-time updates reflected in UI
+* Controlled components for better state handling
 
-## Expanding the ESLint configuration
+ ⚙️ Workflow Simulation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* Simulates workflow execution step-by-step
+* Displays execution logs in a timeline format
+
+
+Validation
+
+* Ensures workflow has:
+
+  * Start node
+  * End node
+* Prevents invalid execution
+ Architecture
+
+The project follows a modular and scalable structure:
+
+```
+src/
+ ├── components/
+ │    ├── Canvas.jsx
+ │    ├── Sidebar.jsx
+ │    ├── NodeFormPanel.jsx
+ │    ├── SimulatorPanel.jsx
+ │
+ │    ├── nodes/
+ │    │     ├── StartNode.jsx
+ │    │     ├── TaskNode.jsx
+ │    │     ├── ApprovalNode.jsx
+ │    │     ├── AutomatedNode.jsx
+ │    │     ├── EndNode.jsx
+ │    │     └── nodeTypes.js
+ │
+ │    ├── forms/
+ │    │     ├── StartForm.jsx
+ │    │     ├── TaskForm.jsx
+ │    │     ├── ApprovalForm.jsx
+ │    │     ├── AutomatedForm.jsx
+ │    │     └── EndForm.jsx
+ │
+ ├── hooks/
+ │    └── useWorkflow.jsx
+ │
+ ├── api/
+ │    └── mockApi.js
+ │
+ ├── utils/
+ │    └── validation.js
+
+
+
+Open in browser:
+
+```
+http://localhost:5173
+```
+
+ Key Design Decisions
+
+* Used **React Context API** for global state management
+* Separated node UI and form logic for scalability
+* Implemented **dynamic forms** for different node types
+* Used mock APIs to simulate backend behavior
+
+ Future Improvements
+
+* Drag-and-drop sidebar
+* Undo/Redo functionality
+* Workflow save/load (JSON export/import)
+* Advanced validation (cycle detection)
+* UI enhancement using Tailwind or Material UI
+
+
